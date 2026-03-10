@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  APP_NAME: go-math-api
+  APP_NAME: go-fibonacci-api
   OVERLAY: dev
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/go-math-api
+      IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/go-fibonacci-api
 
     outputs:
       SHORT_SHA: ${{ steps.vars.outputs.SHORT_SHA }}
@@ -34,7 +34,7 @@ jobs:
       - name: Initialize Go module (if needed)
         run: |
           if [ ! -f go.mod ]; then
-            go mod init go-math-api
+            go mod init go-fibonacci-api
           fi
 
       - name: Build the Go application
